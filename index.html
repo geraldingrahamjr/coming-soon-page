@@ -1,34 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Frontend Mentor | Ping coming soon page</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="ping">PING<span class="blue-dot">.</span></h2>
+      <h1>We are launching soon!</h1>
+      <h4>Subscribe and get notified</h4>
+      <form class="inputs" action="" name="myForm"novalidate onSubmit="search();return false;">
+        <div class="email_validation">
+          <input type="email" id="email" class="email" required  placeholder="Your email address..."  />
+        <p id="error" class="error"></p>
+        </div>
+        <input type="submit" class="button" value="Notify Me" onclick="validation()" />
+      </form>
+      <div class="img-container">
+        <img src="images/illustration-dashboard.png" />
+      </div>
+    </div>
+
+    <footer>
+      &copy; Copyright Ping. All rights reserved.
+      <p class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">Your Name Here</a>.
+      </p>
+    </footer>
+  </body>
+
+<script>
   
-  <title>Frontend Mentor | Ping coming soon page</title>
+ function validation() {
+  var btn_value = document.forms["myForm"]["email"].value;
+  var email_border = document.getElementById("email");
+  var mailformat = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+  if (btn_value.match(mailformat)) {
+     alert("We received your email")
+  } else{
+    document.getElementById("error").innerHTML = "Please provide email Address";
+     email_border.style.borderColor = "red";
+     event.preventDefault();
+    return false
+  }
+ }
+</script>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
-</head>
-<body>
-
-  We are launching soon!
-
-  Subscribe and get notified
-
-  Notify Me
-
-  &copy; Copyright Ping. All rights reserved.
-
-  <footer>
-    <p class="attribution">
-      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-      Coded by <a href="#">Your Name Here</a>.
-    </p>
-  </footer>
-</body>
 </html>
